@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16 # Node.js 버전 설정 (Vite 요구사항: 16 이상)
+          node-version: 20 # Node.js 버전 설정 (Vite 요구사항: 16 이상)
 
       # 3. 종속성 설치 및 빌드
       - name: Install dependencies and build
