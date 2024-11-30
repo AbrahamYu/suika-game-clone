@@ -1,28 +1,28 @@
 const FRUITS_BASE = [
-  {
-    // name: "base/00_cherry",
-    radius: 33 / 2,
-  },
-  {
-    // name: "base/01_strawberry",
-    radius: 48 / 2,
-  },
-  {
-    // name: "base/02_grape",
-    radius: 61 / 2,
-  },
-  {
-    // name: "base/03_gyool",
-    radius: 69 / 2,
-  },
-  {
-    // name: "base/04_orange",
-    radius: 89 / 2,
-  },
-  {
-    // name: "base/05_apple",
-    radius: 114 / 2,
-  },
+  // {
+  //   // name: "base/00_cherry",
+  //   radius: 33 / 2,
+  // },
+  // {
+  //   // name: "base/01_strawberry",
+  //   radius: 48 / 2,
+  // },
+  // {
+  //   // name: "base/02_grape",
+  //   radius: 61 / 2,
+  // },
+  // {
+  //   // name: "base/03_gyool",
+  //   radius: 69 / 2,
+  // },
+  // {
+  //   // name: "base/04_orange",
+  //   radius: 89 / 2,
+  // },
+  // {
+  //   // name: "base/05_apple",
+  //   radius: 114 / 2,
+  // },
   {
     // name: "base/06_pear",
     radius: 129 / 2,
