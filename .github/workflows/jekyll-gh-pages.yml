@@ -1,0 +1,53 @@
+name: Deploy Vite to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # master 브랜치에 Push될 때 실행
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 코드 체크아웃
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Node.js 환경 설정
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20 # 최신 Node.js 버전 사용
+
+      # 3. 종속성 설치 및 빌드
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build # Vite 빌드 실행
+
+      # 4. 빌드 출력 디렉토리 확인
+      - name: Debug artifact path
+        run: ls -la dist # 빌드 결과 디렉토리 내용 출력
+
+      # 5. GitHub Pages 배포를 위한 빌드 결과 업로드
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist # Vite 빌드 출력 디렉토리
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # 6. GitHub Pages에 배포
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          retries: 3 # 최대 3번 재시도
